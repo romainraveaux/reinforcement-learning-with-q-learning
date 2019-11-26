@@ -11866,7 +11866,7 @@ action selections in the future.</p>
 <h1 id="Q-learning">Q-learning<a class="anchor-link" href="#Q-learning">&#182;</a></h1><p>The goal of Q-learning is to learn a policy $\pi(s)$, which tells an agent what action to take under what state.</p>
 <p>Q-learning finds a policy that is optimal in the sense that it maximizes the expected value of the total reward over any and all successive steps, starting from the current state.</p>
 <p>"Q" names the function that returns the reward used to provide the reinforcement and can be said to stand for the "quality" of an action taken in a given state.</p>
-<p><img src="attachment:image.png" alt="image.png"></p>
+<p>$$Q: S \times A \to \mathbb{R} $$</p>
 <p>Before learning begins, $Q$ is initialized to a possibly arbitrary fixed value (chosen by the programmer). Then, at each time $t$ the agent selects an action $a_{t}$, observes a reward $r_{t}$, enters a new state $s_{t+1}$ (that may depend on both the previous state $s_{t}$ and the selected action), and $Q$ is updated. The core of the algorithm is a simple value iteration update, using the weighted average of the old value and the new information:</p>
 <p>${\displaystyle Q^{new}(s_{t},a_{t})\leftarrow (1-\alpha )\cdot \underbrace {Q(s_{t},a_{t})} _{\text{old value}}+\underbrace {\alpha } _{\text{learning rate}}\cdot \overbrace {{\bigg (}\underbrace {r_{t}} _{\text{reward}}+\underbrace {\gamma } _{\text{discount factor}}\cdot \underbrace {\max _{a}Q(s_{t+1},a)} _{\text{estimate of optimal future value}}{\bigg )}} ^{\text{learned value}}}$
 where ${\displaystyle r_{t}}$ is the reward received when moving from the state $s_{{t}}$ to the state $s_{t+1}$, and $\alpha$  is the learning rate $0&lt;\alpha \leq 1$).</p>
